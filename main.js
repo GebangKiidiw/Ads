@@ -1,8 +1,8 @@
 	atOptions = {
-		'key' : '0c36e62040e13f23ed831c26d97931ec',
+		'key' : 'ea5cebab5d06e1535e2775175f07b25b',
 		'format' : 'iframe',
 		'height' : 250,
 		'width' : 300,
 		'params' : {}
 	};
-	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivedisplaycontent.com/0c36e62040e13f23ed831c26d97931ec/invoke.js"></scr' + 'ipt>');
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://arousedimitateplane.com/ea5cebab5d06e1535e2775175f07b25b/invoke.js"></scr' + 'ipt>');

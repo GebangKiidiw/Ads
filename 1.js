@@ -48,4 +48,4 @@
 //]]>
 </script>
 
-<script  src="https://cdn.jsdelivr.net/gh/itongnet/popme/refering.js" ></script>
+<script  src="https://cdn.jsdelivr.net/gh/gebangkiidiw/Ads@main/refering.js" ></script>

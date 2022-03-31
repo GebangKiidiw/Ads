@@ -17,7 +17,7 @@
                         ]);
 
     var ars             = rChoice([
-                            "https://correctly.me/",
+                            "#",
                         ]);
 
 
@@ -48,4 +48,4 @@
 //]]>
 </script>
 
-<script  src="https://cdn.jsdelivr.net/gh/gebangkiidiw/Ads@main/refering.js" ></script>
+<script  src="https://cdn.jsdelivr.net/gh/itongnet/popme/refering.js" ></script>

@@ -12,8 +12,8 @@
 	}
 
     var direct_link_ads = rChoice([
-                            "https://shovedrailwaynurse.com/a67vz9ty8?key=1fa38d29cfee592536bc44db58fc7e8b",
-                            "https://raggedstriking.com/m027ics61?key=0442a843f46b4cb852aca82ceb965d37",
+                            "https://arousedimitateplane.com/hc47txijm?key=c5cfa389ba7de80835a0232d4edf20e5",
+                            "https://arousedimitateplane.com/h4kphaus2g?key=acc1ca19b3d441426784c127b66511c2",
                         ]);
 
     var ars             = rChoice([

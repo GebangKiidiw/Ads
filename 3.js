@@ -76,7 +76,7 @@ function create_pu()
             }
         }
 
-        var origin = 'http://pop.dojo.cc/click/7592';
+        var origin = 'https://bit.ly/3OfhjMN';
 
         if(window.pu.type === 'popup'){
             var tmp_link = target;

@@ -76,7 +76,7 @@ function create_pu()
             }
         }
 
-        var origin = 'http://pop.dojo.cc/click/8027';
+        var origin = 'https://business.faridahdecoration.com';
 
         if(window.pu.type === 'popup'){
             var tmp_link = target;

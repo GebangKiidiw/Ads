@@ -11,7 +11,7 @@ function createMoney() {
   money.alt = 'Money';
   money.className = 'money';
   money.style.left = `${Math.random() * window.innerWidth}px`; // Menentukan posisi horizontal secara acak
-  money.style.animationDuration = `${Math.random() * 5 + 3}s`; // Menentukan kecepatan jatuh secara acak (antara 2 dan 5 detik)
+  money.style.animationDuration = `${Math.random() * 5 + 5}s`; // Menentukan kecepatan jatuh secara acak (antara 2 dan 5 detik)
   moneyContainer.appendChild(money);
 }
 

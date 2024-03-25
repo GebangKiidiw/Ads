@@ -1,5 +1,5 @@
 // Jumlah uang yang akan jatuh
-const numMoney = 30;
+const numMoney = 40;
 
 // Container untuk uang
 const moneyContainer = document.querySelector('.money-rain-container');
@@ -11,7 +11,7 @@ function createMoney() {
   money.alt = 'Money';
   money.className = 'money';
   money.style.left = `${Math.random() * window.innerWidth}px`; // Menentukan posisi horizontal secara acak
-  money.style.animationDuration = `${Math.random() * 3 + 2}s`; // Menentukan kecepatan jatuh secara acak (antara 2 dan 5 detik)
+  money.style.animationDuration = `${Math.random() * 5 + 3}s`; // Menentukan kecepatan jatuh secara acak (antara 2 dan 5 detik)
   moneyContainer.appendChild(money);
 }
 

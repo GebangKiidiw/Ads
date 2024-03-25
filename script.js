@@ -11,8 +11,13 @@ function createMoney() {
   money.alt = 'Money';
   money.className = 'money';
   money.style.left = `${Math.random() * window.innerWidth}px`; // Menentukan posisi horizontal secara acak
-  money.style.animationDuration = `${Math.random() * 8 + 8}s`; // Menentukan kecepatan jatuh secara acak (antara 2 dan 5 detik)
+  money.style.animationDuration = `${Math.random() * 5 + 3}s`; // Menentukan kecepatan jatuh secara acak (antara 3 dan 8 detik)
   moneyContainer.appendChild(money);
+
+  // Menambahkan event listener untuk deteksi saat elemen uang mencapai bagian bawah
+  money.addEventListener('animationend', function() {
+    money.remove(); // Menghapus elemen uang dari DOM setelah animasi selesai
+  });
 }
 
 // Membuat uang jatuh

@@ -5,33 +5,20 @@
         "https://business.faridahdecoration.com/2023/07/understanding-power-of-email-marketing.html"
     ];
 
-    // Fungsi untuk memilih URL secara acak dari daftar
-    function getRandomUrl() {
-        return urls[Math.floor(Math.random() * urls.length)];
-    }
+    var currentPage = 0; // Indeks halaman yang sedang diperbarui
 
-    // Fungsi untuk mengecek apakah semua halaman telah diperbarui
-    function allPagesRefreshed() {
-        for (var i = 0; i < urls.length; i++) {
-            if (!localStorage.getItem(urls[i])) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Fungsi untuk melakukan redirect ke URL secara acak setiap 15 detik
+    // Fungsi untuk melakukan redirect ke URL yang sesuai
     function autoRefresh() {
-        // Cek apakah semua halaman telah diperbarui
-        if (!allPagesRefreshed()) {
-            // Ambil URL secara acak
-            var randomUrl = getRandomUrl();
-            // Redirect ke URL yang dipilih secara acak
-            window.location.href = randomUrl;
-            // Tandai halaman yang telah diperbarui di localStorage
-            localStorage.setItem(randomUrl, true);
+        // Cek apakah masih ada halaman yang perlu diperbarui
+        if (currentPage < urls.length) {
+            // Ambil URL sesuai dengan indeks halaman
+            var urlToRefresh = urls[currentPage];
+            // Redirect ke URL yang sesuai
+            window.location.href = urlToRefresh;
+            // Tambah indeks halaman untuk memperbarui halaman berikutnya
+            currentPage++;
         } else {
-            // Hentikan auto refresh jika semua halaman telah diperbarui
+            // Hentikan auto refresh setelah mencapai halaman terakhir
             clearInterval(refreshInterval);
         }
     }

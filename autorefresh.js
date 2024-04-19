@@ -13,29 +13,11 @@
     // Fungsi untuk mengecek apakah semua halaman telah diperbarui
     function allPagesRefreshed() {
         for (var i = 0; i < urls.length; i++) {
-            if (!getCookie(urls[i])) {
+            if (!localStorage.getItem(urls[i])) {
                 return false;
             }
         }
         return true;
-    }
-
-    // Fungsi untuk mendapatkan nilai cookie
-    function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
-        if (parts.length == 2) return parts.pop().split(";").shift();
-    }
-
-    // Fungsi untuk mengatur nilai cookie
-    function setCookie(name, value, days) {
-        var expires = "";
-        if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + value + expires + "; path=/";
     }
 
     // Fungsi untuk melakukan redirect ke URL secara acak setiap 15 detik
@@ -46,8 +28,8 @@
             var randomUrl = getRandomUrl();
             // Redirect ke URL yang dipilih secara acak
             window.location.href = randomUrl;
-            // Setel cookie untuk menandai bahwa halaman telah diperbarui
-            setCookie(randomUrl, true, 1);
+            // Tandai halaman yang telah diperbarui di localStorage
+            localStorage.setItem(randomUrl, true);
         } else {
             // Hentikan auto refresh jika semua halaman telah diperbarui
             clearInterval(refreshInterval);

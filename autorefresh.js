@@ -1,4 +1,3 @@
-    // Daftar URL yang ingin Anda gunakan
     var urls = [
         "https://business.faridahdecoration.com/2023/07/crm-marketing-service-recovery-winning.html",
         "https://business.faridahdecoration.com/2023/07/the-best-guide-to-finding-old-maximizer.html",

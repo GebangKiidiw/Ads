@@ -5,23 +5,21 @@
         "https://business.faridahdecoration.com/2023/07/understanding-power-of-email-marketing.html"
     ];
 
-    var lastPage = "https://business.faridahdecoration.com/2023/07/understanding-power-of-email-marketing.html"; // Halaman terakhir
-
-    var currentPageIndex = 0; // Indeks halaman yang sedang diperbarui
+    var currentIndex = 0; // Indeks halaman yang sedang ditampilkan
 
     // Fungsi untuk memperbarui halaman berikutnya
     function autoRefresh() {
-        // Ambil URL halaman berikutnya
-        var nextPageUrl = urls[currentPageIndex];
-        
-        // Cek apakah ini adalah halaman terakhir yang ingin diperbarui
-        if (nextPageUrl === lastPage) {
+        // Periksa apakah sudah mencapai halaman terakhir
+        if (currentIndex === urls.length) {
+            console.log("Telah mencapai halaman terakhir. Berhenti auto-refresh.");
             clearInterval(refreshInterval); // Hentikan auto-refresh
         } else {
+            // Ambil URL halaman berikutnya
+            var nextPageUrl = urls[currentIndex];
             // Redirect ke halaman berikutnya
             window.location.href = nextPageUrl;
-            // Perbarui indeks halaman
-            currentPageIndex++;
+            // Perbarui indeks halaman untuk mengarahkan ke halaman berikutnya
+            currentIndex++;
         }
     }
 

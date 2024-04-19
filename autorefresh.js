@@ -5,44 +5,26 @@
         "https://business.faridahdecoration.com/2023/07/understanding-power-of-email-marketing.html"
     ];
 
-    var urlsRefreshed = {}; // Objek untuk melacak apakah halaman telah diperbarui
-    var allPagesRefreshed = false; // Variabel untuk menandakan apakah semua halaman telah diperbarui
+    var pagesRefreshed = 0; // Jumlah halaman yang telah diperbarui
+    var totalPages = urls.length; // Total jumlah halaman
 
-    // Fungsi untuk memeriksa apakah semua halaman telah diperbarui
-    function checkAllPagesRefreshed() {
-        for (var i = 0; i < urls.length; i++) {
-            if (!urlsRefreshed[urls[i]]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Fungsi untuk memilih URL secara acak dari daftar yang belum diperbarui
+    // Fungsi untuk memilih URL secara acak dari daftar
     function getRandomUrl() {
-        var unrefreshedUrls = urls.filter(url => !urlsRefreshed[url]);
-        return unrefreshedUrls[Math.floor(Math.random() * unrefreshedUrls.length)];
+        return urls[Math.floor(Math.random() * urls.length)];
     }
 
     // Fungsi untuk melakukan redirect ke URL secara acak setiap 15 detik
     function autoRefresh() {
-        // Cek apakah semua halaman telah diperbarui
-        if (!allPagesRefreshed) {
-            // Ambil URL yang belum diperbarui secara acak
+        // Cek apakah masih ada halaman yang perlu diperbarui
+        if (pagesRefreshed < totalPages) {
+            // Ambil URL secara acak
             var randomUrl = getRandomUrl();
-            if (randomUrl !== undefined) {
-                // Redirect ke URL yang dipilih secara acak
-                window.location.href = randomUrl;
-                // Tandai URL yang telah diperbarui
-                urlsRefreshed[randomUrl] = true;
-                // Periksa apakah semua halaman telah diperbarui setelah perbaruan terakhir
-                allPagesRefreshed = checkAllPagesRefreshed();
-            } else {
-                // Hentikan auto refresh setelah semua halaman telah diperbarui
-                clearInterval(refreshInterval);
-            }
+            // Redirect ke URL yang dipilih secara acak
+            window.location.href = randomUrl;
+            // Tambah jumlah halaman yang telah diperbarui
+            pagesRefreshed++;
         } else {
-            // Hentikan auto refresh setelah semua halaman telah diperbarui
+            // Hentikan auto refresh jika semua halaman telah diperbarui
             clearInterval(refreshInterval);
         }
     }

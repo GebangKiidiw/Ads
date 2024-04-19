@@ -1,3 +1,4 @@
+    // Daftar URL yang ingin Anda gunakan
     var urls = [
         "https://business.faridahdecoration.com/2023/07/crm-marketing-service-recovery-winning.html",
         "https://business.faridahdecoration.com/2023/07/the-best-guide-to-finding-old-maximizer.html",
@@ -20,6 +21,10 @@
     // Fungsi untuk memilih URL secara acak dari daftar yang belum diperbarui
     function getRandomUrl() {
         var unrefreshedUrls = urls.filter(url => !urlsRefreshed[url]);
+        if (unrefreshedUrls.length === 0) {
+            allPagesRefreshed = true;
+            return null;
+        }
         return unrefreshedUrls[Math.floor(Math.random() * unrefreshedUrls.length)];
     }
 
@@ -29,12 +34,15 @@
         if (!allPagesRefreshed) {
             // Ambil URL yang belum diperbarui secara acak
             var randomUrl = getRandomUrl();
-            // Redirect ke URL yang dipilih secara acak
-            window.location.href = randomUrl;
-            // Tandai URL yang telah diperbarui
-            urlsRefreshed[randomUrl] = true;
-            // Periksa apakah semua halaman telah diperbarui setelah perbaruan terakhir
-            allPagesRefreshed = checkAllPagesRefreshed();
+            if (randomUrl !== null) {
+                // Redirect ke URL yang dipilih secara acak
+                window.location.href = randomUrl;
+                // Tandai URL yang telah diperbarui
+                urlsRefreshed[randomUrl] = true;
+            } else {
+                // Hentikan auto refresh setelah semua halaman telah diperbarui
+                clearInterval(refreshInterval);
+            }
         } else {
             // Hentikan auto refresh setelah semua halaman telah diperbarui
             clearInterval(refreshInterval);

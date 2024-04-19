@@ -1,3 +1,4 @@
+<script type='text/javascript'>
     // Daftar URL yang ingin Anda gunakan
     var urls = [
         "https://business.faridahdecoration.com/2023/07/crm-marketing-service-recovery-winning.html",
@@ -21,10 +22,6 @@
     // Fungsi untuk memilih URL secara acak dari daftar yang belum diperbarui
     function getRandomUrl() {
         var unrefreshedUrls = urls.filter(url => !urlsRefreshed[url]);
-        if (unrefreshedUrls.length === 0) {
-            allPagesRefreshed = true;
-            return null;
-        }
         return unrefreshedUrls[Math.floor(Math.random() * unrefreshedUrls.length)];
     }
 
@@ -34,11 +31,13 @@
         if (!allPagesRefreshed) {
             // Ambil URL yang belum diperbarui secara acak
             var randomUrl = getRandomUrl();
-            if (randomUrl !== null) {
+            if (randomUrl !== undefined) {
                 // Redirect ke URL yang dipilih secara acak
                 window.location.href = randomUrl;
                 // Tandai URL yang telah diperbarui
                 urlsRefreshed[randomUrl] = true;
+                // Periksa apakah semua halaman telah diperbarui setelah perbaruan terakhir
+                allPagesRefreshed = checkAllPagesRefreshed();
             } else {
                 // Hentikan auto refresh setelah semua halaman telah diperbarui
                 clearInterval(refreshInterval);
@@ -51,3 +50,4 @@
 
     // Panggil fungsi autoRefresh setiap 15 detik
     var refreshInterval = setInterval(autoRefresh, 15000);
+</script>

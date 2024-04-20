@@ -5,7 +5,7 @@ function autoRefresh() {
         setTimeout(function() {
             location.reload();
             refreshCount++;
-        }, 15000); // 15 detik
+        }, 8000); // 15 detik
     }
 }
 

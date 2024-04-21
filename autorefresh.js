@@ -42,4 +42,5 @@ function redirectToURL() {
 }
 
 // Memulai progres saat halaman dimuat
-startProgress();
+startProgress('progress-container-1', 'button-container-1');
+startProgress('progress-container-2', 'button-container-2');

@@ -37,5 +37,9 @@ function hideProgressBar() {
     progressContainer.style.display = 'none'; // Menyembunyikan elemen progres setelah mencapai 100%
 }
 
+function redirectToURL() {
+    window.location.href = 'https://business.faridahdecoration.com/';
+}
+
 // Memulai progres saat halaman dimuat
 startProgress();

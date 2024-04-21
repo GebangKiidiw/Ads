@@ -5,11 +5,11 @@ function updateProgressBar(percentage) {
 }
 
 function showButton() {
-    document.getElementById('download-button').style.display = 'block'; // Mengubah ID menjadi 'download-button'
+    document.getElementById('button-container').style.display = 'block';
 }
 
 function hideButton() {
-    document.getElementById('download-button').style.display = 'none'; // Mengubah ID menjadi 'download-button'
+    document.getElementById('button-container').style.display = 'none';
 }
 
 function resetProgress() {

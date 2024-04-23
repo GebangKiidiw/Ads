@@ -37,9 +37,5 @@ function hideProgressBar() {
     progressContainer.style.display = 'none'; // Menyembunyikan elemen progres setelah mencapai 100%
 }
 
-  function scrollPage() {
-    // Menggulir halaman sebesar 210 piksel dari posisi saat ini
-    window.scrollBy(0, 210);
-
 // Memulai progres saat halaman dimuat
 startProgress();

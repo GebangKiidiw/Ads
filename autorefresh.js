@@ -37,15 +37,9 @@ function hideProgressBar() {
     progressContainer.style.display = 'none'; // Menyembunyikan elemen progres setelah mencapai 100%
 }
 
-// Fungsi untuk mengarahkan pengguna ke URL tertentu saat tombol "Download" diklik
 function redirectToURL() {
-  window.location.href = 'https://business.faridahdecoration.com/';
+    window.location.href = 'https://business.faridahdecoration.com/';
 }
-
-// Menambahkan event listener ke tombol "Download"
-document.getElementById('download-button').addEventListener('click', function() {
-  redirectToURL();
-});
 
 // Memulai progres saat halaman dimuat
 startProgress();

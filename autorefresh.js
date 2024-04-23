@@ -43,10 +43,9 @@ function redirectToURL() {
   window.location.href = 'https://business.faridahdecoration.com/2023/07/crm-for-home-builder-options.html';
 }
 
-// Menambahkan event listener ke tombol "Download"
-document.getElementById('download-button').addEventListener('click', function() {
-  redirectToURL();
-});
+function redirectToURL() {
+    window.location.href = 'https://business.faridahdecoration.com/';
+}
 
 // Memulai progres saat halaman dimuat
 startProgress();

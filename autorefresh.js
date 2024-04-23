@@ -39,13 +39,13 @@ function hideProgressBar() {
 
 // Fungsi untuk mengarahkan pengguna ke URL tertentu saat tombol "Download" diklik
 function redirectToURL() {
-  // Ganti 'https://example.com/download' dengan URL tujuan Anda
-  window.location.href = 'https://business.faridahdecoration.com/2023/07/crm-for-home-builder-options.html';
+  window.location.href = 'https://business.faridahdecoration.com/';
 }
 
-function redirectToURL() {
-    window.location.href = 'https://business.faridahdecoration.com/';
-}
+// Menambahkan event listener ke tombol "Download"
+document.getElementById('download-button').addEventListener('click', function() {
+  redirectToURL();
+});
 
 // Memulai progres saat halaman dimuat
 startProgress();

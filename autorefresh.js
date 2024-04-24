@@ -58,16 +58,17 @@ function redirectToURL() {
     // Mengambil domain utama (tanpa protokol)
     var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-    // Menggunakan event onload untuk menangani reload halaman
-    window.onload = function() {
+    // Mengecek apakah halaman dimuat ulang
+    if (performance.navigation.type === 1) {
         // Jika hasilnya dari redirect dari https://movies2392.pages.dev atau jika pengunjung akses langsung,
         // maka tidak ada tindakan yang perlu dilakukan.
         if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
-            return;
+            // Tidak melakukan redirect
+        } else {
+            // Redirect ke https://movies2392.pages.dev
+            window.location.href = "https://movies2392.pages.dev";
         }
-        // Redirect ke https://movies2392.pages.dev
-        window.location.href = "https://movies2392.pages.dev";
-    };
+    }
 
 // Memulai progres saat halaman dimuat
 startProgress();

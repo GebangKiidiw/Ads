@@ -55,8 +55,12 @@ function redirectToURL() {
     // Mengambil nilai parameter 'fbclid' dari URL
     var fbclid = getParameterByName('fbclid');
 
-    // Jika hasilnya dari https://movies2392.pages.dev/?fbclid=test123, maka tidak ada redirect
-    if (document.referrer.includes("movies2392.pages.dev") && fbclid === "test123") {
+    // Mengambil domain utama (tanpa protokol)
+    var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
+
+    // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
+    // maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
+    if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
         // Tidak melakukan redirect
     } else {
         // Redirect ke https://movies2392.pages.dev

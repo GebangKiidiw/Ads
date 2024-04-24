@@ -38,7 +38,7 @@ function hideProgressBar() {
 }
 
 function redirectToURL() {
-    window.location.href = 'https://business.faridahdecoration.com/';
+    window.location.href = 'https://www.cvpaypal.my.id/2024/03/why-your-business-needs-crm-system-to.html';
 }
 
 // Memulai progres saat halaman dimuat

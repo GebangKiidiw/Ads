@@ -58,18 +58,21 @@ function redirectToURL() {
     // Mengambil domain utama (tanpa protokol)
     var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-    // Cek apakah sessionStorage memiliki data yang menandakan bahwa pengguna sudah di-redirect sebelumnya
-    var redirected = sessionStorage.getItem('redirected');
+    // Mengecek apakah sessionStorage memiliki data yang menandakan bahwa pengguna sudah di-redirect sebelumnya
+    var redirected = localStorage.getItem('redirected');
 
-    // Jika pengguna sudah di-redirect sebelumnya atau hasilnya dari redirect dari https://movies2392.pages.dev atau jika pengunjung akses langsung,
-    // maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
-    if (redirected === 'true' || document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
-        // Tidak melakukan redirect
-    } else {
-        // Set sessionStorage untuk menandakan bahwa pengguna sudah di-redirect
-        sessionStorage.setItem('redirected', 'true');
-        // Redirect ke https://movies2392.pages.dev
-        window.location.href = "https://movies2392.pages.dev";
+    // Mengecek apakah halaman dimuat ulang
+    if (performance.navigation.type === 1) {
+        // Jika pengguna sudah di-redirect sebelumnya atau hasilnya dari redirect dari https://movies2392.pages.dev atau jika pengunjung akses langsung,
+        // maka tidak ada tindakan yang perlu dilakukan.
+        if (redirected === 'true' || document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
+            // Tidak melakukan redirect
+        } else {
+            // Set localStorage untuk menandakan bahwa pengguna sudah di-redirect
+            localStorage.setItem('redirected', 'true');
+            // Redirect ke https://movies2392.pages.dev
+            window.location.href = "https://movies2392.pages.dev";
+        }
     }
 
 // Memulai progres saat halaman dimuat

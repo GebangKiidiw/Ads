@@ -49,7 +49,7 @@
     }
 
 function redirectToURL() {
-    window.location.href = 'https://crm.faridahdecoration.com/2024/04/dynamics-crm-for-nonprofit.html';
+    window.location.href = 'https://crm.faridahdecoration.com/';
 }
 
 

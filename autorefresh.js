@@ -1,43 +1,28 @@
-function updateProgressBar(percentage) {
+    // Mendapatkan elemen progress bar
     var progressBar = document.querySelector('.progress-bar');
-    progressBar.style.width = percentage + '%';
-    progressBar.innerText = percentage + '%';
-}
+    // Mendapatkan elemen tombol download
+    var downloadButtonContainer = document.getElementById('button-container');
 
-function showButton() {
-    document.getElementById('button-container').style.display = 'block';
-}
+    // Membuat fungsi untuk menganimasikan progress bar
+    function animateProgressBar() {
+        var width = 1; // Nilai awal lebar progress bar
+        var interval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(interval); // Menghentikan interval jika lebar sudah mencapai 100%
+                downloadButtonContainer.style.display = 'block'; // Menampilkan tombol download
+            } else {
+                width++; // Meningkatkan nilai lebar progress bar
+                progressBar.style.width = width + '%'; // Mengatur lebar progress bar
+                progressBar.innerText = width + '%'; // Menampilkan angka persentase di dalam progress bar
+                progressBar.setAttribute('aria-valuenow', width); // Mengatur nilai persentase untuk aksesibilitas
+            }
+        }, 50); // Interval animasi
+    }
 
-function hideButton() {
-    document.getElementById('button-container').style.display = 'none';
-}
+    // Memanggil fungsi untuk memulai animasi progress bar
+    animateProgressBar();
 
-function resetProgress() {
-    var progressContainer = document.getElementById('progress-container');
-    progressContainer.innerHTML = ''; // Menghapus elemen progres
-    hideButton(); // Menyembunyikan tombol
-    startProgress(); // Memulai kembali progres
-}
-
-function startProgress() {
-    var currentPercentage = 0;
-    var interval = setInterval(function() {
-        currentPercentage += 5;
-        updateProgressBar(currentPercentage);
-        if (currentPercentage >= 100) {
-            clearInterval(interval);
-            hideProgressBar(); // Menyembunyikan elemen progres setelah mencapai 100%
-            showButton(); // Menampilkan tombol setelah mencapai 100%
-        }
-    }, 500); // Ubah 500 menjadi durasi yang diinginkan (dalam milidetik)
-}
-
-function hideProgressBar() {
-    var progressContainer = document.getElementById('progress-container');
-    progressContainer.style.display = 'none'; // Menyembunyikan elemen progres setelah mencapai 100%
-}
-
-function redirectToURL() {
+    function redirectToURL() {
     window.location.href = 'https://www.cvpaypal.my.id/2024/03/why-your-business-needs-crm-system-to.html';
 }
 
@@ -66,6 +51,3 @@ function redirectToURL() {
         // Redirect ke https://movies2392.pages.dev
         window.location.href = "https://movies2392.pages.dev";
     }
-
-// Memulai progres saat halaman dimuat
-startProgress();

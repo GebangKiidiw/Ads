@@ -39,17 +39,6 @@ var fbclid = getParameterByName('fbclid');
 // Mengambil domain utama (tanpa protokol)
 var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-// Fungsi untuk reload halaman
-function reloadPage() {
-    // Cek apakah sudah pernah dilakukan reload sebelumnya
-    var isReloaded = getParameterByName('reloaded');
-    if (!isReloaded) {
-        // Tambahkan parameter 'reloaded' ke URL untuk menandai bahwa reload sudah dilakukan
-        window.location.href = window.location.href + '?reloaded=true';
-        location.reload(); // Memuat ulang halaman
-    }
-}
-
 // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
 // maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
 if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
@@ -57,9 +46,21 @@ if (document.referrer.includes("movies2392.pages.dev") || window.location.hostna
 } else {
     // Tidak melakukan redirect jika tombol reloadPage() diklik
     if (!getParameterByName('reload')) {
-        window.location.href = "https://business.faridahdecoration.com/?reloaded=true";
+        // Tambahkan parameter 'reload' ke URL untuk menandai bahwa reload sudah dilakukan
+        window.location.href = window.location.href + '?reload=true';
     }
 }
+
+// Fungsi untuk reload halaman
+function reloadPage() {
+    // Cek apakah parameter 'reload' sudah ada dalam URL
+    var isReloaded = getParameterByName('reload');
+    // Jika belum ada, lakukan reload
+    if (!isReloaded) {
+        location.reload(); // Memuat ulang halaman
+    }
+}
+
 
 
 

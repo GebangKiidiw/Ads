@@ -57,7 +57,7 @@ if (document.referrer.includes("movies2392.pages.dev") || window.location.hostna
 } else {
     // Tidak melakukan redirect jika tombol reloadPage() diklik
     if (!getParameterByName('reload')) {
-        window.location.href = "https://business.faridahdecoration.com/";
+        window.location.href = "https://business.faridahdecoration.com/?reloaded=true";
     }
 }
 

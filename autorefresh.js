@@ -22,31 +22,48 @@
     // Memanggil fungsi untuk memulai animasi progress bar
     animateProgressBar();
 
- // Fungsi untuk mendapatkan parameter dari URL
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
+// Fungsi untuk mendapatkan parameter dari URL
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// Mengambil nilai parameter 'fbclid' dari URL
+var fbclid = getParameterByName('fbclid');
+
+// Mengambil domain utama (tanpa protokol)
+var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
+
+// Fungsi untuk reload halaman
+function reloadPage() {
+    // Cek apakah parameter 'reload' sudah ada dalam URL
+    var isReloaded = getParameterByName('reload');
+    // Jika belum ada, lakukan reload
+    if (!isReloaded) {
+        // Tambahkan parameter 'reload' ke URL untuk menandai bahwa reload sudah dilakukan
+        window.location.href = window.location.href + '?reload=true';
+        location.reload(); // Memuat ulang halaman
     }
+}
 
-    // Mengambil nilai parameter 'fbclid' dari URL
-    var fbclid = getParameterByName('fbclid');
+// Ketika tombol "Download Now" diklik, arahkan ke URL yang diinginkan
+function redirectToURL() {
+    window.location.href = 'https://crm.faridahdecoration.com/2024/04/dynamics-crm-for-nonprofit.html';
+}
 
-    // Mengambil domain utama (tanpa protokol)
-    var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
-
-    // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
-    // maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
-    if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
-        // Tidak melakukan redirect
-    } else {
-        // Redirect ke https://movies2392.pages.dev
-        window.location.href = "https://movies2392.pages.dev";
-    }
+// Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
+// maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
+if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
+    // Tidak melakukan redirect
+} else {
+    // Redirect ke https://movies2392.pages.dev
+    window.location.href = "https://movies2392.pages.dev";
+}
 
 
 

@@ -23,7 +23,7 @@
     animateProgressBar();
 
     function redirectToURL() {
-    window.location.href = 'https://www.cvpaypal.my.id/2024/03/why-your-business-needs-crm-system-to.html';
+    window.location.href = 'https://business.faridahdecoration.com/2023/07/birthday-list-for-crm-ultimate-guide-to.html';
 }
 
     // Fungsi untuk mendapatkan parameter dari URL

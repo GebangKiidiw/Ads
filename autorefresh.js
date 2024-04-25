@@ -22,8 +22,8 @@
     // Memanggil fungsi untuk memulai animasi progress bar
     animateProgressBar();
 
-    function redirectToURL() {
-    window.location.href = 'https://business.faridahdecoration.com/2023/07/birthday-list-for-crm-ultimate-guide-to.html';
+function reloadPage() {
+    location.reload(); // Memuat ulang halaman tanpa mengubah URL
 }
 
     // Fungsi untuk mendapatkan parameter dari URL

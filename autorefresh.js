@@ -52,32 +52,30 @@ function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }
 
-// Definisikan fungsi untuk memuat iklan saat masuk ke dalam viewport
-function loadAds() {
-    var ads = document.querySelectorAll('.lazy-load-ad');
-    ads.forEach(function(ad) {
-        if (isElementInViewport(ad)) {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            ad.classList.remove('lazy-load-ad');
-        }
+  function lazyLoadAds() {
+    var adElements = document.querySelectorAll('.lazy-ad');
+
+    adElements.forEach(function(adElement) {
+      if (isInViewport(adElement)) {
+        adElement.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="' + adElement.dataset.adClient + '" data-ad-slot="' + adElement.dataset.adSlot + '" data-ad-format="' + adElement.dataset.adFormat + '" data-full-width-responsive="' + adElement.dataset.fullWidthResponsive + '"></ins>';
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        adElement.classList.remove('lazy-ad');
+      }
     });
-}
+  }
 
-// Fungsi untuk mengecek apakah elemen ada dalam viewport
-function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
+  function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
     return (
-        rect.bottom >= 0 &&
-        rect.right >= 0 &&
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-}
+  }
 
-// Memuat iklan saat dokumen selesai dimuat
-document.addEventListener('DOMContentLoaded', loadAds);
-// Memuat iklan saat pengguna menggulir halaman
-window.addEventListener('scroll', loadAds);
+  document.addEventListener('DOMContentLoaded', lazyLoadAds);
+  window.addEventListener('scroll', lazyLoadAds);
 
 
 

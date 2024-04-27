@@ -52,32 +52,6 @@ function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }
 
-  function lazyLoadAds() {
-    var adElements = document.querySelectorAll('.lazy-ad');
-
-    adElements.forEach(function(adElement) {
-      if (isInViewport(adElement)) {
-        adElement.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="' + adElement.dataset.adClient + '" data-ad-slot="' + adElement.dataset.adSlot + '" data-ad-format="' + adElement.dataset.adFormat + '" data-full-width-responsive="' + adElement.dataset.fullWidthResponsive + '"></ins>';
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        adElement.classList.remove('lazy-ad');
-      }
-    });
-  }
-
-  function isInViewport(element) {
-    var rect = element.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-
-  document.addEventListener('DOMContentLoaded', lazyLoadAds);
-  window.addEventListener('scroll', lazyLoadAds);
-
-
 
 
 

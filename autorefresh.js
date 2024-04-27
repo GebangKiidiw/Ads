@@ -52,6 +52,32 @@ function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }
 
+// Definisikan fungsi untuk memuat iklan saat masuk ke dalam viewport
+function loadAds() {
+    var ads = document.querySelectorAll('.lazy-load-ad');
+    ads.forEach(function(ad) {
+        if (isElementInViewport(ad)) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            ad.classList.remove('lazy-load-ad');
+        }
+    });
+}
+
+// Fungsi untuk mengecek apakah elemen ada dalam viewport
+function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.bottom >= 0 &&
+        rect.right >= 0 &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Memuat iklan saat dokumen selesai dimuat
+document.addEventListener('DOMContentLoaded', loadAds);
+// Memuat iklan saat pengguna menggulir halaman
+window.addEventListener('scroll', loadAds);
 
 
 

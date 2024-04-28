@@ -39,12 +39,12 @@ var fbclid = getParameterByName('fbclid');
 // Mengambil domain utama (tanpa protokol)
 var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
-// Mengambil parameter 'noredirect' dari URL
-var noRedirect = getParameterByName('noredirect');
+// Mengambil parameter 'reloading' dari URL
+var reloading = getParameterByName('reloading');
 
 // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
-// atau jika parameter 'noredirect' ada di URL, maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
-if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || noRedirect) {
+// atau jika parameter 'noredirect' atau 'reloading' ada di URL, maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
+if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || noRedirect || reloading) {
     // Tidak melakukan redirect
 } else {
     // Redirect ke https://movies2392.pages.dev dengan parameter 'noredirect'
@@ -55,7 +55,7 @@ function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }
 
-  function reloadPage() {
-    // Reload halaman
-    location.reload();
-  }
+function reloadPage() {
+    // Reload halaman dengan parameter 'reloading'
+    window.location.href = window.location.href.split('?')[0] + "?reloading=true";
+}

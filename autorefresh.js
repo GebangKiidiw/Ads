@@ -51,12 +51,19 @@ if ((!document.referrer && !reloading) || (document.referrer.includes("movies239
 }
 
 function reloadPage() {
-    // Menambahkan parameter 'reloading' ke URL
-    var newUrl = window.location.href.split('?')[0] + "?reloading=true";
-    // Mengganti URL yang ditampilkan di browser
-    history.replaceState({}, null, newUrl);
+    // Menyimpan status reload ke sessionStorage
+    sessionStorage.setItem('reloading', 'true');
     // Reload halaman
     location.reload();
+}
+
+// Memeriksa status reload saat halaman dimuat
+window.onload = function() {
+    var reloading = sessionStorage.getItem('reloading');
+    if (reloading) {
+        sessionStorage.removeItem('reloading');
+        // Jika halaman sedang di-reload, lakukan aksi yang diperlukan
+    }
 }
 
 function redirectToURL() {

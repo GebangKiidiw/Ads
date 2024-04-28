@@ -50,6 +50,15 @@ if ((!document.referrer && !reloading) || (document.referrer.includes("movies239
     window.location.href = "https://movies2392.pages.dev?noredirect=true";
 }
 
+function reloadPage() {
+    // Menambahkan parameter 'reloading' ke URL
+    var newUrl = window.location.href.split('?')[0] + "?reloading=true";
+    // Mengganti URL yang ditampilkan di browser
+    history.replaceState({}, null, newUrl);
+    // Reload halaman
+    location.reload();
+}
+
 function redirectToURL() {
     window.location.href = 'https://crm.faridahdecoration.com/';
 }

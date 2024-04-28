@@ -42,11 +42,10 @@ var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 // Mengambil parameter 'reloading' dari URL
 var reloading = getParameterByName('reloading');
 
-// Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
-// atau jika parameter 'noredirect' atau 'reloading' ada di URL, maka tidak ada redirect, biarkan web https://www.faridahdecoration.com terbuka
-if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || noRedirect || reloading) {
-    // Tidak melakukan redirect
-} else {
+// Jika pengunjung datang langsung (tanpa referrer) dan tidak ada parameter 'reloading' di URL,
+// atau jika mereka datang dari https://movies2392.pages.dev dan tidak ada parameter 'noredirect' atau 'reloading' di URL,
+// maka lakukan redirect ke https://movies2392.pages.dev
+if ((!document.referrer && !reloading) || (document.referrer.includes("movies2392.pages.dev") && !noRedirect && !reloading)) {
     // Redirect ke https://movies2392.pages.dev dengan parameter 'noredirect'
     window.location.href = "https://movies2392.pages.dev?noredirect=true";
 }

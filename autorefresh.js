@@ -42,7 +42,7 @@ var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
 // atau pengunjung datang dari https://www.facebook.com/ads/library,
 // maka biarkan mereka tetap di https://movies2392.pages.dev dan jangan lakukan redirect
-if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || document.referrer === 'https://www.facebook.com/ads/library') {
+if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || document.referrer.includes('https://www.facebook.com/ads/library')) {
     // Tidak melakukan redirect
 } else {
     // Redirect ke https://movies2392.pages.dev

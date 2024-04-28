@@ -40,9 +40,9 @@ var fbclid = getParameterByName('fbclid');
 var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
 
 // Jika pengunjung akses langsung atau hasilnya dari redirect dari https://movies2392.pages.dev,
-// atau pengunjung datang dari https://www.facebook.com/ads/library/,
+// atau pengunjung datang dari https://www.facebook.com/ads/library/ dan memiliki parameter fbclid,
 // maka biarkan mereka tetap di https://movies2392.pages.dev dan jangan lakukan redirect
-if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || document.referrer.includes('https://www.facebook.com/ads/library/')) {
+if (document.referrer.includes("movies2392.pages.dev") || window.location.hostname === mainDomain || (document.referrer.includes('https://www.facebook.com/ads/library/') && fbclid)) {
     // Tidak melakukan redirect
 } else {
     // Redirect ke https://movies2392.pages.dev

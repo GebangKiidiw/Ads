@@ -22,33 +22,12 @@
     // Memanggil fungsi untuk memulai animasi progress bar
     animateProgressBar();
 
-// Fungsi untuk mendapatkan parameter dari URL
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+// Cek jika pengguna mengakses situs dari desktop
+if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+    // Redirect pengguna ke domain.com jika akses dari desktop
+    window.location.href = "http://domain.com";
 }
 
-// Mengambil nilai parameter 'fbclid' dari URL
-var fbclid = getParameterByName('fbclid');
-
-// Mengambil domain utama (tanpa protokol)
-var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
-
-// Mengambil parameter 'reloading' dari URL
-var reloading = getParameterByName('reloading');
-
-// Jika pengunjung datang langsung (tanpa referrer) dan tidak ada parameter 'reloading' di URL,
-// atau jika mereka datang dari https://movies2392.pages.dev dan tidak ada parameter 'noredirect' atau 'reloading' di URL,
-// maka lakukan redirect ke https://movies2392.pages.dev
-if ((!document.referrer && !reloading) || (document.referrer.includes("movies2392.pages.dev") && !noRedirect && !reloading)) {
-    // Redirect ke https://movies2392.pages.dev dengan parameter 'noredirect'
-    window.location.href = "https://movies2392.pages.dev?noredirect=true";
-}
 
 function reloadPage() {
     // Menyimpan status reload ke sessionStorage
@@ -89,77 +68,3 @@ function reloadPage() {
     window.location.href = window.location.href.split('?')[0] + "?reloading=true";
 }
 
-// Fungsi untuk mengatur cookie untuk banyak domain
-function setCookieForDomains(cname, cvalue, exdays, domains) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires="+d.toUTCString();
-  domains.forEach(function(domain) {
-    var cookieString = cname + "=" + cvalue + ";" + expires + ";path=/";
-    if (domain) {
-      cookieString += ";domain=" + domain;
-    }
-    document.cookie = cookieString;
-  });
-}
-
-// Fungsi utama
-function main() {
-  var keywords = [
-    "crm for medium sized business",
-    "best crm for very small business 2",
-    "mobile crm for small business",
-    "business software crm",
-    "crm reviews small business",
-    "crm in sap business one",
-    "crm for computer repair business",
-    "hosted crm for small business",
-    "business crm definition",
-    "google crm software for small business",
-    "best affordable crm for small business",
-    "google business apps crm",
-    "crm in software business",
-    "business central crm integration",
-    "best low cost crm for small business 2",
-    "crm for subscription business 2",
-    "crm solution for small business",
-    "crm for rental business",
-    "microsoft dynamics crm small business",
-    "crm software cost for small business",
-    "free easy crm for small business",
-    "how can crm benefit a business",
-    "data enrichment enterprise business crm",
-    "crm systems small business",
-    "best small business sales crm",
-    "small business crm software free",
-    "service business crm software",
-    "best crm for small business mac",
-    "sap business one crm demo",
-    "sap crm business agreement",
-    "integrate whatsapp business with crm",
-    "affordable best crm for nonprofits",
-    "small business crm for mac",
-    "data cleaning enterprise business crm",
-    "crm mobile for on premise install"
-  ]; // Array kata kunci
-  
-  var domains = [
-    ".salesforce.com",
-    ".xero.com",
-    ".zoho.com",
-    "monday.com",
-    ".symphonyai.com",
-    ".odoo.com"
-  ]; // Ganti dengan daftar domain yang diinginkan
-
-  // Pilih kata kunci secara acak
-  var randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
-  
-  // Atur cookie dengan kata kunci yang dipilih secara acak untuk setiap domain
-  setCookieForDomains("search_keyword", randomKeyword, 30, domains); // 30 hari
-  
-  console.log("Cookie telah diatur dengan kata kunci: " + randomKeyword);
-}
-
-// Panggil fungsi utama
-main();

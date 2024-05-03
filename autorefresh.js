@@ -72,7 +72,7 @@ function redirectDomain() {
     if (device === 'mobile') {
         window.location.href = "https://business.faridahdecoration.com/";
     } else {
-        window.location.href = "https://movie.bangkulon.com/";
+        window.location.href = "https://faridahdecoration.com/";
     }
 }
 

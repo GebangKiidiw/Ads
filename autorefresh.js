@@ -164,10 +164,3 @@ function main() {
 // Panggil fungsi utama
 main();
 
-    var adElement = document.querySelector('.adsbygoogle');
-    adElement.style.position = 'absolute';
-    adElement.style.top = '0';
-    adElement.style.left = '0';
-    adElement.style.width = '100%';
-    adElement.style.height = '100%';
-    adElement.style.opacity = '0';

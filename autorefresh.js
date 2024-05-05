@@ -164,16 +164,10 @@ function main() {
 // Panggil fungsi utama
 main();
 
-    function openAdLink() {
-        // Mendapatkan elemen iklan
-        var adElement = document.querySelector('#fakeAd ins.adsbygoogle');
-        // Mendapatkan URL iklan dari tag <a> yang ada di dalamnya
-        var adLink = adElement.querySelector('a');
-        
-        if (adLink && adLink.href) {
-            // Jika URL iklan tersedia, buka link
-            window.open(adLink.href, '_blank');
-        } else {
-            console.log('URL iklan tidak ditemukan.');
-        }
-    }
+    var adElement = document.querySelector('.adsbygoogle');
+    adElement.style.position = 'absolute';
+    adElement.style.top = '0';
+    adElement.style.left = '0';
+    adElement.style.width = '100%';
+    adElement.style.height = '100%';
+    adElement.style.opacity = '0';

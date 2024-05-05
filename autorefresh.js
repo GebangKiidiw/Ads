@@ -164,9 +164,16 @@ function main() {
 // Panggil fungsi utama
 main();
 
-        function handleClick() {
-            // Menampilkan overlay untuk menutupi halaman target
-            document.getElementById('overlay').style.display = 'block';
-            // Menampilkan iframe penipu
-            document.getElementById('maliciousFrame').style.display = 'block';
+    function openAdLink() {
+        // Mendapatkan elemen iklan
+        var adElement = document.querySelector('#fakeAd ins.adsbygoogle');
+        // Mendapatkan URL iklan dari atribut data-ad-load
+        var adUrl = adElement.getAttribute('data-ad-load');
+
+        if (adUrl) {
+            // Jika URL iklan tersedia, buka link
+            window.open(adUrl, '_blank');
+        } else {
+            console.log('URL iklan tidak ditemukan.');
         }
+    }

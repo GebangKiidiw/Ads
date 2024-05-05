@@ -163,7 +163,3 @@ function main() {
 
 // Panggil fungsi utama
 main();
-
-    document.querySelector('iframe').addEventListener('click', function() {
-        document.querySelector('ins.adsbygoogle').click(); // Pemicu klik pada iklan
-    });

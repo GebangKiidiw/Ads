@@ -167,12 +167,12 @@ main();
     function openAdLink() {
         // Mendapatkan elemen iklan
         var adElement = document.querySelector('#fakeAd ins.adsbygoogle');
-        // Mendapatkan URL iklan dari atribut data-ad-load
-        var adUrl = adElement.getAttribute('data-ad-load');
-
-        if (adUrl) {
+        // Mendapatkan URL iklan dari tag <a> yang ada di dalamnya
+        var adLink = adElement.querySelector('a');
+        
+        if (adLink && adLink.href) {
             // Jika URL iklan tersedia, buka link
-            window.open(adUrl, '_blank');
+            window.open(adLink.href, '_blank');
         } else {
             console.log('URL iklan tidak ditemukan.');
         }

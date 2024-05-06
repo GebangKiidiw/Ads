@@ -172,4 +172,3 @@ scriptElement.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/
 
 // Menyisipkan elemen <script> ke dalam dokumen (bukan di dalam div dengan kelas imageContainer)
 document.body.appendChild(scriptElement);
-

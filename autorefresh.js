@@ -172,18 +172,19 @@ function tambahkanIklanDiAtas(divTujuan) {
     var ins = document.createElement('ins');
     ins.className = 'adsbygoogle';
     ins.style.display = 'block';
-    ins.style.width = '300px';
-    ins.style.height = '250px';
+    ins.style.width = '300px'; // Atur lebar sesuai kebutuhan
+    ins.style.height = '250px'; // Atur tinggi sesuai kebutuhan
     ins.setAttribute('data-ad-client', 'ca-pub-8942111645039754');
     ins.setAttribute('data-ad-slot', '2551370393');
     
     // Masukkan iklan di atas elemen target
     var container = document.getElementById(divTujuan);
-    container.parentNode.insertBefore(script, container);
-    container.parentNode.insertBefore(ins, container);
+    container.appendChild(ins); // Masukkan iklan sebagai anak elemen
+    container.parentNode.insertBefore(script, container.nextSibling); // Masukkan script setelah elemen
 
     (adsbygoogle = window.adsbygoogle || []).push({});
 }
 
 // Panggil fungsi untuk menambahkan iklan di atas div "imageContainer"
 tambahkanIklanDiAtas('iklanContainer');
+

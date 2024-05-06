@@ -163,12 +163,3 @@ function main() {
 
 // Panggil fungsi utama
 main();
-
-// Membuat elemen <script> baru
-var scriptElement = document.createElement("script");
-
-// Menetapkan atribut src
-scriptElement.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-
-// Menyisipkan elemen <script> ke dalam dokumen (bukan di dalam div dengan kelas imageContainer)
-document.body.appendChild(scriptElement);

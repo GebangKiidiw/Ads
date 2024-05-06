@@ -164,6 +164,3 @@ function main() {
 // Panggil fungsi utama
 main();
 
-// Panggil fungsi untuk menambahkan iklan di atas div "imageContainer"
-tambahkanIklanDiAtas('iklanContainer');
-

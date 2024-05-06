@@ -168,7 +168,7 @@ main();
 var insElement = document.createElement("ins");
 
 // Menetapkan atribut kelas
-insElement.setAttribute("class", "adsbygoogle");
+insElement.setAttribute("class", "active");
 
 // Menetapkan atribut style
 insElement.setAttribute("style", "position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:999;");

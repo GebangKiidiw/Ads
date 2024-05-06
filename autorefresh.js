@@ -171,7 +171,7 @@ var insElement = document.createElement("ins");
 insElement.setAttribute("class", "active");
 
 // Menetapkan atribut style
-insElement.setAttribute("style", "position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto;z-index:999;opacity:0.5;");
+insElement.setAttribute("style", "position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto;z-index:999;");
 
 // Menetapkan atribut data-ad-client
 insElement.setAttribute("data-ad-client", "ca-pub-8942111645039754");

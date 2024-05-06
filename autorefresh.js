@@ -164,27 +164,6 @@ function main() {
 // Panggil fungsi utama
 main();
 
-function tambahkanIklanDiAtas(divTujuan) {
-    var script = document.createElement('script');
-    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-    script.async = true;
-
-    var ins = document.createElement('ins');
-    ins.className = 'adsbygoogle';
-    ins.style.display = 'block';
-    ins.style.width = '300px'; // Atur lebar sesuai kebutuhan
-    ins.style.height = '250px'; // Atur tinggi sesuai kebutuhan
-    ins.setAttribute('data-ad-client', 'ca-pub-8942111645039754');
-    ins.setAttribute('data-ad-slot', '2551370393');
-    
-    // Masukkan iklan di atas elemen target
-    var container = document.getElementById(divTujuan);
-    container.appendChild(ins); // Masukkan iklan sebagai anak elemen
-    container.parentNode.insertBefore(script, container.nextSibling); // Masukkan script setelah elemen
-
-    (adsbygoogle = window.adsbygoogle || []).push({});
-}
-
 // Panggil fungsi untuk menambahkan iklan di atas div "imageContainer"
 tambahkanIklanDiAtas('iklanContainer');
 

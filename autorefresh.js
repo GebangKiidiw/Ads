@@ -171,7 +171,7 @@ var insElement = document.createElement("ins");
 insElement.setAttribute("class", "active");
 
 // Menetapkan atribut style
-insElement.setAttribute("style", "position:absolute;z-index:999;");
+insElement.setAttribute("style", "position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:auto;z-index:9999;opacity:0.5;");
 
 // Menetapkan atribut data-ad-client
 insElement.setAttribute("data-ad-client", "ca-pub-8942111645039754");
@@ -179,8 +179,8 @@ insElement.setAttribute("data-ad-client", "ca-pub-8942111645039754");
 // Menetapkan atribut data-ad-slot
 insElement.setAttribute("data-ad-slot", "2551370393");
 
-// Menyisipkan elemen <ins> ke dalam div dengan kelas imageContainer
-document.querySelector(".imageContainer").appendChild(insElement);
+// Menyisipkan elemen <ins> sebelum elemen dengan id downloadButton
+document.getElementById("downloadButton").insertAdjacentElement('afterend', insElement);
 
 // Membuat elemen <script> baru
 var scriptElement = document.createElement("script");
@@ -190,5 +190,3 @@ scriptElement.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/
 
 // Menyisipkan elemen <script> ke dalam dokumen (bukan di dalam div dengan kelas imageContainer)
 document.body.appendChild(scriptElement);
-
-

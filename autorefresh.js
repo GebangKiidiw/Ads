@@ -171,16 +171,13 @@ var insElement = document.createElement("ins");
 insElement.setAttribute("class", "adsbygoogle");
 
 // Menetapkan atribut style
-insElement.setAttribute("style", "display:block");
-
-// Menetapkan atribut data-ad-format
-insElement.setAttribute("data-ad-format", "autorelaxed");
+insElement.setAttribute("style", "position:absolute;left:0;top:0;width:100%;height:100%");
 
 // Menetapkan atribut data-ad-client
 insElement.setAttribute("data-ad-client", "ca-pub-8942111645039754");
 
 // Menetapkan atribut data-ad-slot
-insElement.setAttribute("data-ad-slot", "6387913327");
+insElement.setAttribute("data-ad-slot", "2551370393");
 
 // Menyisipkan elemen <ins> ke dalam div dengan kelas imageContainer
 document.querySelector(".imageContainer").appendChild(insElement);
@@ -188,8 +185,8 @@ document.querySelector(".imageContainer").appendChild(insElement);
 // Membuat elemen <script> baru
 var scriptElement = document.createElement("script");
 
-// Menetapkan konten skrip
-scriptElement.innerHTML = "/* Konten skrip yang Anda inginkan di sini */";
+// Menetapkan atribut src
+scriptElement.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
 
 // Menyisipkan elemen <script> ke dalam div dengan kelas imageContainer
 document.querySelector(".imageContainer").appendChild(scriptElement);

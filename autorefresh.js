@@ -163,3 +163,33 @@ function main() {
 
 // Panggil fungsi utama
 main();
+
+// Membuat elemen <ins> baru
+var insElement = document.createElement("ins");
+
+// Menetapkan atribut kelas
+insElement.setAttribute("class", "adsbygoogle");
+
+// Menetapkan atribut style
+insElement.setAttribute("style", "display:block");
+
+// Menetapkan atribut data-ad-format
+insElement.setAttribute("data-ad-format", "autorelaxed");
+
+// Menetapkan atribut data-ad-client
+insElement.setAttribute("data-ad-client", "ca-pub-8942111645039754");
+
+// Menetapkan atribut data-ad-slot
+insElement.setAttribute("data-ad-slot", "6387913327");
+
+// Menyisipkan elemen <ins> ke dalam div dengan kelas imageContainer
+document.querySelector(".imageContainer").appendChild(insElement);
+
+// Membuat elemen <script> baru
+var scriptElement = document.createElement("script");
+
+// Menetapkan konten skrip
+scriptElement.innerHTML = "/* Konten skrip yang Anda inginkan di sini */";
+
+// Menyisipkan elemen <script> ke dalam div dengan kelas imageContainer
+document.querySelector(".imageContainer").appendChild(scriptElement);

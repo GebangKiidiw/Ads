@@ -1,5 +1,3 @@
-<!-- Meta Pixel Code -->
-<script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -16,7 +14,6 @@ src="https://www.facebook.com/tr?id=1500849913830791&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-<script>
     // Mendapatkan elemen progress bar
     var progressBar = document.querySelector('.progress-bar');
     // Mendapatkan elemen tombol download
@@ -182,4 +179,3 @@ src="https://www.facebook.com/tr?id=1500849913830791&ev=PageView&noscript=1"
 
     // Panggil fungsi utama
     main();
-</script>

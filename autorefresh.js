@@ -22,34 +22,6 @@
     // Memanggil fungsi untuk memulai animasi progress bar
     animateProgressBar();
 
-    // Fungsi untuk mendapatkan parameter dari URL
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    // Mengambil nilai parameter 'fbclid' dari URL
-    var fbclid = getParameterByName('fbclid');
-
-    // Mengambil domain utama (tanpa protokol)
-    var mainDomain = window.location.hostname.split('.').slice(-2).join('.');
-
-    // Mengambil parameter 'reloading' dari URL
-    var reloading = getParameterByName('reloading');
-
-    // Jika pengunjung datang langsung (tanpa referrer) dan tidak ada parameter 'reloading' di URL,
-    // atau jika mereka datang dari https://movies2392.pages.dev dan tidak ada parameter 'noredirect' atau 'reloading' di URL,
-    // maka lakukan redirect ke https://movies2392.pages.dev
-    if ((!document.referrer && !reloading) || (document.referrer.includes("movies2392.pages.dev") && !noRedirect && !reloading)) {
-        // Redirect ke https://movies2392.pages.dev dengan parameter 'noredirect'
-        window.location.href = "https://movies2392.pages.dev?noredirect=true";
-    }
-
     function reloadPage() {
         // Menyimpan status reload ke sessionStorage
         sessionStorage.setItem('reloading', 'true');
